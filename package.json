@@ -8,7 +8,7 @@
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit",
-    "compile:sass": "node-sass app/public/sass/main.scss app/public/css/styles.css -w"
+    "compile:sass": "node-sass public/sass/main.scss public/css/styles.css -w"
   },
   "keywords": [],
   "author": "",

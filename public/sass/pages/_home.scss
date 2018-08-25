@@ -31,23 +31,25 @@
     padding: 15rem 0;
 }
 
-.section-booking {
+.section-user {
     padding: 15rem 0;
-    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    // background-image: linear-gradient(to right bottom, $color-blue-light, $color-blue-dark);
+    background-color: transparent;
 }
 
-.booking {
+.user {
     background-image: linear-gradient(105deg,
-    rgba($color-white, .9) 0%,
-    rgba($color-white, .9) 50%,
+    rgba($color-blue-light, .9) 0%,
+    rgba($color-blue-dark, .9) 50%,
     transparent 50%),
-    url(../img/nat-10.jpg);
+    url(../../img/background.jpg);
+    background-position: bottom;
 
     background-size: 100%;
     border-radius: $default-border-radius;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
-    height: 50rem;
+    height: 40rem;
 
     &__form {
         width: 50%;

@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html>
- 
-<head>
-    <title></title>
-</head>
- 
-<body>
-    <form id="signin" name="signin" method="post" action="signin">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
-    </form>
- 
-</body>
- 
-</html>
+
+    <section class="section-user">
+        <div class="row">
+            <div class="user">
+                <div class="user__form">
+                    
+                    <form id="signin" class="form" name="signin" method="post" action="signin"> 
+
+                        <div class="form__group">
+                            <input type="email" class="form__input text" placeholder="Email Address" id="email" name="email" required>
+                            <label for="email" class="form__label" >Email Address</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="password" class="form__input" placeholder="Password" id="password" name="password" required>
+                            <label for="password" class="form__label">Password</label>
+                        </div>
+
+                        <input class="btn" type="submit" value="Sign In" />
+
+                        <p>Not registed? <a href="/signup">Sign up</a></p>
+
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
