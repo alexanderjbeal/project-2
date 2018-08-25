@@ -7,7 +7,8 @@
     "start": "node server.js",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
-    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit",
+    "compile:sass": "node-sass app/public/sass/main.scss app/public/css/styles.css -w"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "fs": "0.0.1-security",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
+    "node-sass": "^4.9.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
