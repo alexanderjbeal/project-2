@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 let env = require('dotenv').load();
 let exphbs = require('express-handlebars');
 
-let PORT = process.env.PORT || 8080;
+let PORT = process.env.PORT || 5000;
 
 // BodyParser (Middleware)
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,13 +21,19 @@ app.use(passport.session()); // persistent login sessions
 // Handlebars
 app.set('views', './views')
 app.engine('hbs', exphbs({
-    defaultLayout: "main",
-    extname: ".hbs"
+    extname: '.hbs',
+    defaultLayout: "main"
 }));
 app.set('view engine', '.hbs');
 
+
+app.get('/', function(req, res) {
+    res.send('Welcome to Passport with Sequelize');
+});
+
+
 // Models
-let models = require("./models");
+let db = require("./models");
 
 // Routes
 let authRoute = require('./routes/auth.js')(app,passport);
@@ -35,7 +41,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Load passport strategies
-require('./config/passport/passport.js')(passport, models.user);
+require('./config/passport/passport.js')(passport, db.user);
  
 let syncOptions = { force: false };
 
@@ -46,7 +52,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Start Server - Sync Database & Models
-models.sequelize.sync(syncOptions).then(function() {
+db.sequelize.sync(syncOptions).then(function() {
     app.listen(PORT, function(err) {
         if (!err)
         console.log(`

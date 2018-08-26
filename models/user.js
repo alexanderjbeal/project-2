@@ -49,7 +49,9 @@ module.exports = function(sequelize, Sequelize) {
  
  
     });
- 
+    
+    User.sync();
+
     return User;
  
 }

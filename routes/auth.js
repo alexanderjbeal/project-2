@@ -2,6 +2,7 @@ var authController = require('../controllers/authcontroller.js');
  
 module.exports = function(app, passport) {
  
+    // Login
     app.get('/signup', authController.signup);
  
     app.get('/signin', authController.signin);
@@ -17,11 +18,17 @@ module.exports = function(app, passport) {
     app.get('/logout', authController.logout);
  
     app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/',
+            successRedirect: '/dashboard',
             failureRedirect: '/signin'
         }
     ));
- 
+
+    // Pages
+
+    app.get('/index', authController.index);
+    app.get('/players', authController.players);
+
+    // 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();
