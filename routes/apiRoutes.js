@@ -9,6 +9,7 @@ module.exports = function(app) {
     });
   });
 
+
   // Add a player
   app.post("/api/new", (req, res) => {
 
@@ -19,26 +20,11 @@ module.exports = function(app) {
       firstname: req.body.firstname,
       email: req.body.email
     }).then( (results) => {
-      // `results` here would be the newly created chirp
       res.end();
     });
 
   });
 
-
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
 
 };
 
@@ -46,6 +32,19 @@ module.exports = function(app) {
 
 
 
+  // // Create a new example
+  // app.post("/api/examples", function(req, res) {
+  //   db.Example.create(req.body).then(function(dbExample) {
+  //     res.json(dbExample);
+  //   });
+  // });
+
+  // // Delete an example by id
+  // app.delete("/api/examples/:id", function(req, res) {
+  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+  //     res.json(dbExample);
+  //   });
+  // });
 
 
   // Get all examples
