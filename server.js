@@ -14,9 +14,18 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 // Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true, 
+    saveUninitialized: true
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+app.use(function(req, res, next){
+    res.locals.isAuthenticated = req.isAuthenticated();
+    next();
+});
 
 // Handlebars
 app.set('views', './views')
@@ -36,7 +45,7 @@ app.get('/', function(req, res) {
 let db = require("./models");
 
 // Routes
-let authRoute = require('./routes/auth.js')(app,passport);
+require('./routes/auth.js')(app,passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
@@ -67,18 +76,6 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 module.exports = app;
-
-
-// var db = require("./models");
-
-// // Handlebars
-// app.engine(
-//   "handlebars",
-//   exphbs({
-//     defaultLayout: "main"
-//   })
-// );
-// app.set("view engine", "handlebars");
 
 
 

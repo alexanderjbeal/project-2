@@ -214,7 +214,7 @@ body {
   -moz-perspective: 150rem;
   position: relative;
   height: 52rem;
-  margin-bottom: 6rem;
+  margin-bottom: 6.5rem;
   z-index: 1000; }
   .card__side {
     font-size: 2rem;
@@ -234,9 +234,9 @@ body {
       transform: rotateY(180deg); }
       .card__side--back-1 {
         background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
-  .card:hover .card__side--front {
+  .card:active .card__side--front {
     transform: rotateY(-180deg); }
-  .card:hover .card__side--back {
+  .card:active .card__side--back {
     transform: rotateY(0); }
   .card__picture {
     background-size: cover;
@@ -407,9 +407,10 @@ body {
     display: table;
     clear: both; }
   .players-container [class^="col-"] {
-    float: left; }
-    .players-container [class^="col-"]:not(:last-child) {
-      margin-right: 6rem; }
+    float: left;
+    margin-right: 6rem; }
+    .players-container [class^="col-"]:nth-child(3n) {
+      margin-right: 0; }
   .players-container .col-1-of-3 {
     width: calc((100% - 2 * 6rem) / 3); }
 

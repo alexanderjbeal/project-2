@@ -4,7 +4,7 @@
     -moz-perspective: 150rem;
     position: relative;
     height: 52rem;
-    margin-bottom: 6rem;
+    margin-bottom: 6.5rem;
     z-index: 1000;
 
     &__side {
@@ -35,11 +35,11 @@
     }
 
 
-    &:hover &__side--front {
+    &:active &__side--front {
         transform: rotateY(-180deg);
     }
 
-    &:hover &__side--back {
+    &:active &__side--back {
         transform: rotateY(0);
     }
 

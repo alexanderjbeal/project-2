@@ -96,7 +96,11 @@
       return bCrypt.compareSync(password, userpass);
     }
 
-    User.findOne({ where : { email: email}}).then(function (user) {
+    User.findOne({
+      where : { 
+        email: email
+      }
+    }).then(function (user) {
 
       if (!user) {
         return done(null, false, { message: 'Email does not exist' });

@@ -53,9 +53,10 @@
 
     [class^="col-"] {
         float: left;
+        margin-right: $gutter-horizontal;
 
-        &:not(:last-child) {
-            margin-right: $gutter-horizontal;
+        &:nth-child(3n) {
+            margin-right: 0;
         }
     }
 
