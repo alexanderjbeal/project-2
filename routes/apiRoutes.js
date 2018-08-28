@@ -1,29 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
-
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
-
-module.exports = function(app) {
   //sequelize callbacks for the games page
   //get to display all games
   app.get("/api/games", function(req, res) {
@@ -47,119 +24,20 @@ module.exports = function(app) {
 
   //need to write the update post for
   app.put("/api/games", function(req, res) {
-    //object to grab and validate which fields to update
-    var validateArr = [];
-    // variable to strore JSON object from onclick function
-    var updateStorage = {
-      location: "Dirt Park",
-      time: "12:30",
-      maxPlayers: 10
-    };
-    //pushing updateStorage to validateArr
-    validateArr.push(updateStorage);
-    console.log(validateArr);
-    //Looping through
-    for (i = 0; i < validateArr.length; i++) {
-      //if all three fields are not null
-      if (req.body.location != null && req.body.time != null && req.body.maxPlayers != null ) {
-        db.Games.update({
-          location: req.body.location,
-          time: req.body.time,
-          maxPlayers: req.body.maxPlayers
+    let game = {};
 
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-      } else if (req.body.location != null && req.body.time != null && req.body.maxPlayers == null) {
-        //if location and time are not null & maxPlayers is null
-        db.Games.update({
-          location: req.body.location,
-          time: req.body.time
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-        
-      } else if (req.body.location != null && req.body.time == null && req.body.maxPlayers != null) {
-        //if location and maxPlayers are not null & time is null
-        db.Games.update({
-          location: req.body.location,
-          maxPlayers: req.body.maxPlayers
+    if (req.body.location) game.location = req.body.location;
+    if (req.body.time) game.time = req.body.time;
+    if (req.body.maxPlayers) game.maxPlayers = req.body.maxPlayers;
 
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-      } else if (req.body.location != null && req.body.time == null && req.body.maxPlayers == null) {
-        // if location is not null & time and maxPlayers are null
-        db.Games.update({
-          location: req.body.location
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-      } else if (req.body.location == null && req.body.time != null && req.body.maxPlayers != null) {
-        // if time and maxPlayers are not null & location is null
-        db.Games.update({
-          time: req.body.time,
-          maxPlayers: req.body.maxPlayers
-
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-      } else if (req.body.location == null && req.body.time != null && req.body.maxPlayers == null) {
-        // if time is not null and location & maxPlayers are null
-        db.Games.update({
-          time: req.body.time
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-      } else if (req.body.location == null && req.body.time == null && req.body.maxPlayers != null) {
-        // if maxPlayers is not null and location & time are null
-        db.Games.update({
-          maxPlayers: req.body.maxPlayers
-
-        }, {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (dbUpdateGames) {
-            console.log(dbUpdateGames)
-            res.json(dbUpdateGames)
-          });
-      } else {
-        console.log("No updates by user")
-      };//closing the conditional to update.
-    }//for loop closing curly bracket.
-
-
+    db.Games.update(game, {
+        where: {
+            id: req.body.id
+        }
+    }).then(function (dbUpdateGames) {
+        console.log(dbUpdateGames)
+        res.json(dbUpdateGames)
+    });
   })
 
   //sequelize callbacks for players page
