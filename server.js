@@ -22,22 +22,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.use(function(req, res, next){
+app.use( (req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated();
     next();
 });
 
 // Handlebars
-app.set('views', './views')
-app.engine('hbs', exphbs({
-    extname: '.hbs',
+app.set("views", "./views");
+app.engine("hbs", exphbs({
+    extname: ".hbs",
     defaultLayout: "main"
 }));
-app.set('view engine', '.hbs');
+app.set("view engine", ".hbs");
 
 
-app.get('/', function(req, res) {
-    res.send('Welcome to Passport with Sequelize');
+app.get('/', (req, res) => {
+    res.send("Welcome to Passport with Sequelize");
 });
 
 
@@ -45,12 +45,12 @@ app.get('/', function(req, res) {
 let db = require("./models");
 
 // Routes
-require('./routes/auth.js')(app,passport);
+require("./routes/auth.js")(app,passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Load passport strategies
-require('./config/passport/passport.js')(passport, db.user);
+require("./config/passport/passport.js")(passport, db.user);
  
 let syncOptions = { force: false };
 
@@ -61,8 +61,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Start Server - Sync Database & Models
-db.sequelize.sync(syncOptions).then(function() {
-    app.listen(PORT, function(err) {
+db.sequelize.sync(syncOptions).then( () => {
+    app.listen(PORT, (err) => {
         if (!err)
         console.log(`
         \nSite is live 🌎
@@ -71,7 +71,7 @@ db.sequelize.sync(syncOptions).then(function() {
         `);
         else console.log(err)
       });
-}).catch(function(err) {
+}).catch( (err) => {
     console.log(err, "Something went wrong with the database update!")
 });
 

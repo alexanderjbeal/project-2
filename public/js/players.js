@@ -11,7 +11,7 @@ $.get("/api/all", (data) => {
                                 </div>
                                 <h4 class="card__heading">
                                     <span class="card__heading-span card__heading-span--1">
-                                     
+                                    ${data[i].firstname}
                                     </span>
                                 </h4>
                                 <div class="card__details">
@@ -35,17 +35,6 @@ $.get("/api/all", (data) => {
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 // // When user clicks add-btn
