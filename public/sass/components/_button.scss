@@ -88,7 +88,7 @@
     // }
     
     &--animated {
-        animation: moveInBottom .5s ease-out .75s;
+        animation: moveInBottom 1.5s ease-out .75s;
         /* class speed type delay */
         animation-fill-mode: backwards;
     }

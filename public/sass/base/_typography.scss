@@ -20,7 +20,8 @@ body {
         font-size: 11rem;
         font-weight: 700;
         letter-spacing: -.4rem;
-        animation: moveInTop 1.5s ease-out;
+        animation: moveInTop 1.5s ease-out .75s;
+        animation-fill-mode: backwards;
         text-align: left;
         line-height: 10rem;
         text-shadow: 0  1rem 2rem rgba($color-black, .8);

@@ -31,7 +31,8 @@
         width: 100%;
         background-size: cover;
         background-position: bottom;
-        animation: fadeIn 5s ease;
+        animation: fadeIn 3s ease .75s;
+        animation-fill-mode: backwards;
         position: absolute;
         z-index: 1000;
     }

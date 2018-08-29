@@ -1,7 +1,7 @@
   // Load bcrypt
   const bCrypt = require('bcrypt-nodejs');
 
-  module.exports = function(passport,user){
+  module.exports = function(passport, user, sports) {
 
   let User = user;
   const LocalStrategy = require('passport-local').Strategy;
@@ -54,12 +54,12 @@
             lastname: req.body.lastname
           };
           
-          User.create(data).then( (newUser,created) => {
+          User.create(data).then( (newUser, created) => {
             if(!newUser) {
               return done(null,false);
             }
             if(newUser) {
-              return done(null,newUser);
+              return done(null, newUser);
             }
           });
         }
@@ -67,7 +67,7 @@
     }
   ));
     
-  // Local Sign-in
+// Local Sign-in
   passport.use('local-signin', new LocalStrategy(
     {
       // by default, local strategy uses username and password, we will override with email
@@ -106,4 +106,8 @@
     });
   }
 ));
+
+
 }
+
+

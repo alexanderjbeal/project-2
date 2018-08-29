@@ -25,6 +25,7 @@ module.exports = function(app, passport) {
 
     // Pages
     app.get('/index', authController.index);
+    app.get('/games', authController.games);
     app.get('/players', authController.players);
 
     function isLoggedIn(req, res, next) {
@@ -32,4 +33,5 @@ module.exports = function(app, passport) {
             return next();
         res.redirect('/signin');
     }
+    
 }

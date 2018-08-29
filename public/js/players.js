@@ -1,3 +1,4 @@
+
 // Grab all registered players from users database
 $.get("/api/all", (data) => {
   if (data.length !== 0) {

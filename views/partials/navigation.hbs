@@ -13,13 +13,13 @@
         <ul class="navigation__list">
             {{#if isAuthenticated}}
             <li class="navigation__item"><a href="/index" class="navigation__link">Home</a></li>
-            <li class="navigation__item"><a href="#" class="navigation__link">Games</a></li>
+            <li class="navigation__item"><a href="/games" class="navigation__link">Games</a></li>
             <li class="navigation__item"><a href="/players" class="navigation__link">Players</a></li>
             <li class="navigation__item"><a href="/logout" class="navigation__link">Logout</a></li>
             {{/if}}
             {{#unless isAuthenticated}}
             <li class="navigation__item"><a href="/index" class="navigation__link">Home</a></li>
-            <li class="navigation__item"><a href="#" class="navigation__link">Games</a></li>
+            <li class="navigation__item"><a href="/games" class="navigation__link">Games</a></li>
             <li class="navigation__item"><a href="/players" class="navigation__link">Players</a></li>
             <li class="navigation__item"><a href="/signin" class="navigation__link">Login</a></li>
             {{/unless}}

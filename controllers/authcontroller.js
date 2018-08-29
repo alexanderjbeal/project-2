@@ -24,6 +24,10 @@ exports.index = function(req, res) {
     res.render('index');
 }
 
+exports.games = function(req, res) {
+    res.render('games');
+}
+
 exports.players = function(req, res) {
     res.render('players');
 }
