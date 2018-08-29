@@ -1,7 +1,7 @@
   // Load bcrypt
   const bCrypt = require('bcrypt-nodejs');
 
-  module.exports = function(passport, user, sports) {
+  module.exports = function(passport, user) {
 
   let User = user;
   const LocalStrategy = require('passport-local').Strategy;

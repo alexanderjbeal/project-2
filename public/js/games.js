@@ -9,9 +9,6 @@
 //     };
 //     console.log(newGame);
 
-//     //using Jquery to post the new game to express and allowing the API route to
-//     //send it to the data base
-
 //     $.post("/api/games", newGame, 
 //         function(data) {
 //             if (data) {
@@ -54,7 +51,7 @@ $.get("/api/games", (data) => {
                                   <div class="card__cta">
                                       <div class="card__price-box">
                                           <p class="card__price-only">Placeholder</p>
-                                          <p class="card__price-value">${data[i].firstname}</p>
+                                          <p class="card__price-value"></p>
                                       </div>
                                       <a href="#" class="btn btn--white">Invite</a>
                                   </div>

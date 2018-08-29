@@ -50,7 +50,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Load passport strategies
-require("./config/passport.js")(passport, db.user);
+require("./config/passport.js")(passport, db.User);
  
 let syncOptions = { force: false };
 

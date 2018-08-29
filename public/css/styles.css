@@ -416,6 +416,23 @@ body {
   .players-container .col-1-of-3 {
     width: calc((100% - 2 * 6rem) / 3); }
 
+.games-container {
+  max-width: 110rem;
+  margin: 0 auto; }
+  .games-container:not(:last-child) {
+    margin-bottom: 8rem; }
+  .games-container::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .games-container [class^="col-"] {
+    float: left;
+    margin-right: 6rem; }
+    .games-container [class^="col-"]:nth-child(3n) {
+      margin-right: 0; }
+  .games-container .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+
 .navigation__checkbox {
   display: none; }
 

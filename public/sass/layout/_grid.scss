@@ -64,3 +64,28 @@
         width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
     }
 }
+
+
+.games-container {
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    [class^="col-"] {
+        float: left;
+        margin-right: $gutter-horizontal;
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+}
