@@ -18,15 +18,6 @@
         <input class="btn" type="submit" value="Create Game"  />
     </form>
     
-    {{!-- <form class="" action="games/insert" method="POST">
-        <label for="time">Time</label>
-        <input type="number" id="time" name="time">
-        <label for="location">Location</label>
-        <input type="text" id="location" name="location">
-        <label for="max_players">Max Players</label>
-        <input type="text" id="max_players" name="max_players">
-        <input class="btn" type="submit" value="Create Game"  />
-    </form> --}}
 </div>
 
 
@@ -34,34 +25,6 @@
 
 
 
-<div class="row">
 
-	<div class="container">
-  		{{#each games}}
-	  			<p>
-          	{{this.id}} {{this.time}}
-          </p>
-  		{{/each}}	
-	</div>
-</div>
-
-
-{{!-- 
-<body>
-    <form id="games" name="games" method="post" action="/games">
-        <label for="time">Time</label>
-        <input class="text" name="time" type="text" id="time" required/>
-        <label for="location">Location</label>
-        <input name="location" type="text" id="location" required />
-        <label for="max_players">Players Needed</label>
-        <input name="max_players" type="text" id="max_players" required/>
-        <input id="submit" class="btn" type="submit" value="Create" />
-    </form>
-
-
-      <div class="games-container"></div>
-
-
-</body> --}}
 
  <script type="text/javascript" src="js/games.js"></script>

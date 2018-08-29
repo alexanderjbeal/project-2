@@ -2,32 +2,37 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    // Get all players
-  app.get("/api/all", (req, res) => {
-    db.User.findAll({}).then( (dbPlayers) => {
-      res.json(dbPlayers);
-    });
-  });
 
-    // POST route for saving a new post
-    app.post("/api/games", function(req, res) {
-      console.log(req.body.time);
-      db.Game.create({
-          time: req.body.time,
-          location: req.body.location,
-          max_player: req.body.max_player
-      }).then(function() {
-          res.redirect("/games");
+    // Get all players
+    app.get("/api/all", (req, res) => {
+      db.User.findAll({}).then( (dbPlayers) => {
+        res.json(dbPlayers);
+      });
+    });
+  
+      // POST route for saving a new post
+      app.post("/api/games", function(req, res) {
+        console.log(req.body.time);
+        db.Game.create({
+            time: req.body.time,
+            location: req.body.location,
+            max_player: req.body.max_player
+        }).then(function() {
+            res.redirect("/games");
+        });
+    });
+  
+  
+    app.get('/api/games', (req, res) => {
+      db.Game.findAll({}).then(function(dbGame) {
+          // res.render("games", { Game: dbGame });
+          res.json(dbGame);
       });
   });
 
 
-  app.get('/api/games', (request, response) => {
-    db.Game.findAll({}).then(function(dbGame) {
-        response.render("games", { Game: dbGame });
-        res.json(dbGame);
-    });
-});
+
+
 
 
 
