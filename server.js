@@ -16,13 +16,13 @@ app.use(express.static("public"));
 // Passport
 app.use(session({
     secret: 'keyboard cat',
-    resave: true, 
+    resave: true,
     saveUninitialized: true
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.use( (req, res, next) => {
+app.use((req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated();
     next();
 });
@@ -45,33 +45,33 @@ app.get('/', (req, res) => {
 let db = require("./models");
 
 // Routes
-require("./routes/auth.js")(app,passport);
+require("./routes/auth.js")(app, passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Load passport strategies
 require("./config/passport.js")(passport, db.user);
- 
+
 let syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+if (process.env.NODE_ENV === "development") {
+    syncOptions.force = true;
 }
 
 // Start Server - Sync Database & Models
-db.sequelize.sync(syncOptions).then( () => {
+db.sequelize.sync(syncOptions).then(() => {
     app.listen(PORT, (err) => {
         if (!err)
-        console.log(`
+            console.log(`
         \nSite is live 🌎
         \nServer running on ${PORT}
         \nDatabase looks good!
         `);
         else console.log(err)
-      });
-}).catch( (err) => {
+    });
+}).catch((err) => {
     console.log(err, "Something went wrong with the database update!")
 });
 
