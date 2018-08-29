@@ -1,0 +1,17 @@
+{{> navigation}}
+
+<p class="paragraph">Games</p>
+
+<body>
+    <form id="games" name="games" method="post" action="/games">
+        <label for="time">Time</label>
+        <input class="text" name="time" type="text" id="time" required/>
+        <label for="location">Location</label>
+        <input name="location" type="text" id="location" required />
+        <label for="max_players">Players Needed</label>
+        <input name="max_players" type="text" id="max_players" required/>
+        <input id="submit" class="btn" type="submit" value="Create" />
+    </form>
+</body>
+
+ <script type="text/javascript" src="js/games.js"></script>

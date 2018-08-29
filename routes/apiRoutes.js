@@ -20,7 +20,6 @@ module.exports = function(app) {
     db.Games.destroy({where: {id: req.params.id } }).then(function(dbGames) {
       res.json(dbGames);
     });
-  });
 
   //need to write the update post for
   app.put("/api/games", function(req, res) {
