@@ -31,11 +31,10 @@ module.exports = function (sequelize, Sequelize) {
 
   // Game.associate = function(models) {
   //   // We're saying that a Game should belong to an User
-  //   // A Game can't be created without an User due to the foreign key constraint
+  //   // A Game can't be created without a User due to the foreign key constraint
   //   Game.belongsTo(models.User, {
-  //     ondelete: "CASCADE",
   //     foreignKey: {
-  //       allowNull: true
+  //       allowNull: false
   //     }
   //   });
   // };

@@ -1,3 +1,4 @@
+// GET route for games from game database
 $.get("/api/games", (data) => {
     if (data.length !== 0) {
       for (var i = 0; i < data.length; i++) {

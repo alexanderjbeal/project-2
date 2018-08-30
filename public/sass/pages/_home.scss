@@ -4,6 +4,12 @@
     margin-top: -20vh;
 }
 
+.section-games {
+    // background-color: $color-black;
+    background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
+    padding: 10rem 0 5rem 0;
+}
+
 .section-players {
     // background-color: $color-black;
     background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);

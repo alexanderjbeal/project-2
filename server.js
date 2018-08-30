@@ -46,8 +46,8 @@ let db = require("./models");
 
 // Routes
 require("./routes/auth.js")(app,passport);
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 // Load passport strategies
 require("./config/passport.js")(passport, db.User);

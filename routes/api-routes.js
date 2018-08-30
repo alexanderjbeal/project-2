@@ -3,14 +3,21 @@ var db = require("../models");
 module.exports = function(app) {
 
 
-    // GET route for gettingg all players/users
+    // GET route for getting all players/users
     app.get("/api/all", (req, res) => {
       db.User.findAll({}).then( (dbPlayers) => {
         res.json(dbPlayers);
       });
     });
+
+    // GET route for getting all gams
+    app.get('/api/games', (req, res) => {
+      db.Game.findAll({}).then(function(dbGame) {
+        res.json(dbGame);
+      });
+    });
     
-    // POST route for saving a new post
+    // POST route for creating a new game
     app.post("/api/games", function(req, res) {
       db.Game.create({
         time: req.body.time,
@@ -21,12 +28,7 @@ module.exports = function(app) {
       });
     });
   
-  // GET route for getting all gams
-    app.get('/api/games', (req, res) => {
-      db.Game.findAll({}).then(function(dbGame) {
-        res.json(dbGame);
-      });
-    });
+
 
 
     //delete to delete a game by player id

@@ -547,6 +547,10 @@ body {
   padding: 25rem 0;
   margin-top: -20vh; }
 
+.section-games {
+  background-image: linear-gradient(to right bottom, #25abf8, #55c57a);
+  padding: 10rem 0 5rem 0; }
+
 .section-players {
   background-image: linear-gradient(to right bottom, #25abf8, #55c57a);
   padding: 10rem 0 5rem 0; }

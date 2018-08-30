@@ -1,5 +1,4 @@
-
-// Grab all registered players from users database
+// GET route for registered players from users database
 $.get("/api/all", (data) => {
   if (data.length !== 0) {
     for (var i = 0; i < data.length; i++) {

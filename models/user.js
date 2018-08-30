@@ -51,11 +51,11 @@ module.exports = function(sequelize, Sequelize) {
 
     // User.associate = function(models) {
     //     // Associating User with Game
-    //     // When an User is deleted, also delete any associated Game
+    //     // When a User is deleted, also delete any associated Games
     //     User.hasMany(models.Game, {
     //       onDelete: "cascade"
     //     });
-    // };
+    //   };
 
     User.sync();
     return User;
