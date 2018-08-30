@@ -1,6 +1,6 @@
 module.exports = function (sequelize, Sequelize) {
 
-    var Sport = sequelize.define('sport', {
+    var Sport = sequelize.define('Sport', {
       numberOfUsers: {
         type: Sequelize.INTEGER,
         allowNull: true

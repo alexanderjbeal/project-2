@@ -1,32 +1,3 @@
-// $("#submit").on("click", function(event) {
-//     event.preventDefault();
-
-//     // Grabbing the elements in the form
-//     var newGame = {
-//         time: $("#time").val().trim(),
-//         location: $("#location").val().trim(),
-//         max_players: $("#max_players").val().trim()
-//     };
-//     console.log(newGame);
-
-//     $.post("/api/games", newGame, 
-//         function(data) {
-//             if (data) {
-//                 console.log("new game details have been submitted");
-//             } else {
-//                 alert("Please fill out all game fields")
-//             }
-
-//             //clearing the fields once the form is submitted
-//             $("#time").val("");
-//             $("#location").val("");
-//             $("#max_players").val("");
-//         //closing the jquery post
-//     });
-// //closing the on click function    
-// });
-
-
 $.get("/api/games", (data) => {
     if (data.length !== 0) {
       for (var i = 0; i < data.length; i++) {
