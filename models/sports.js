@@ -17,7 +17,7 @@ module.exports = function (sequelize, Sequelize) {
         },
         timeStamp: {
             type: Sequelize.DATE,
-            defaultValue: Date.now()
+            defaultValue: Sequelize.NOW
         }
 
     });
@@ -36,6 +36,7 @@ module.exports = function (sequelize, Sequelize) {
     Sport.associate = function (models) {
         // We're saying that a Game should belong to an User
         // A Game can't be created without an User due to the foreign key constraint
+        // Sport.belongsTo(models.user, {
         Sport.belongsTo(models.user, {
             ondelete: "CASCADE",
             foreignKey: {

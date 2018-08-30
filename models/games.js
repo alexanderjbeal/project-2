@@ -12,16 +12,16 @@ module.exports = function (sequelize, Sequelize) {
       //     { 'where': { 'id': id } }
       //   )
 
-    },
-    userId: {
-      type: Sequelize.INTEGER,
-      allowNull: true
-    },
-    sportSportsId: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      defaultValue: 1
     }
+    // userId: {
+    //   type: Sequelize.INTEGER,
+    //   allowNull: true
+    // },
+    // sportSportsId: {
+    //   type: Sequelize.INTEGER,
+    //   allowNull: true,
+    //   defaultValue: 1
+    // }
   });
 
   Game.associate = function (models) {
@@ -44,5 +44,6 @@ module.exports = function (sequelize, Sequelize) {
   // INSERT INTO "test" ("id","title","id_list") VALUES (DEFAULT,'testing 2',ARRAY[1,2]::INTEGER[]) RETURNING *;
   //allowNull: true
   Game.sync();
+  //{ force: true }
   return Game;
 };
