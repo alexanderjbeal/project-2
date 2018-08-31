@@ -10,21 +10,12 @@ module.exports = function (sequelize, Sequelize) {
   });
 
   // Sport.associate = function (models) {
-  //   Sport.belongsTo(models.User, {
+  //   Sport.hasMany(models.User, {
   //     onDelete: "CASCADE",
   //     foreignKey: {
-  //       name: "UserId",
   //       allowNull: true
   //     }
-  //   }),
-  //     Sport.belongsTo(models.Sport, {
-  //       onDelete: "CASCADE",
-  //       foreignKey: {
-  //         name: "gameGameId",
-  //         allowNull: true
-  //       }
-  //     });
-
+  //   });
   // }
 
   Sport.sync();

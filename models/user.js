@@ -2,12 +2,6 @@ module.exports = function(sequelize, Sequelize) {
 
     const User = sequelize.define('User', {
  
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: Sequelize.INTEGER
-        },
- 
         firstname: {
             type: Sequelize.STRING,
             notEmpty: true
@@ -50,21 +44,13 @@ module.exports = function(sequelize, Sequelize) {
     });
 
     User.associate = function (models) {
-        // Associating User with Game
-        // When an User is deleted, also delete any associated Game
-        User.hasMany(models.Game, {
-            onDelete: "cascade"
-        });
-    };
+    // Associating User with Game
+    // When an User is deleted, also delete any associated Game
 
-    User.associate = function (models) {
-        User.belongsToMany(models.Game, {
-            through: {
-                model: models.Sport
-            },
-            foreignKey: 'id'
-        });
-    }
+      models.User.belongsToMany(models.Game, {
+        through: models.UserGame
+      });
+    };
 
     // User.associate = function(models) {
     //     // Associating User with Game
