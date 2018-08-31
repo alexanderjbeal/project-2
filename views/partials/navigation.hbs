@@ -1,0 +1,28 @@
+<div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+     
+    <label for="navi-toggle" class="navigation__button">
+         <span class="navigation__icon">&nbsp;</span>
+    </label>
+    
+    <div class="navigation__background">
+        &nbsp;
+    </div>
+    
+    <nav class="navigation__nav">
+        <ul class="navigation__list">
+            {{#if isAuthenticated}}
+            <li class="navigation__item"><a href="/index" class="navigation__link">Home</a></li>
+            <li class="navigation__item"><a href="/games" class="navigation__link">Games</a></li>
+            <li class="navigation__item"><a href="/players" class="navigation__link">Players</a></li>
+            <li class="navigation__item"><a href="/logout" class="navigation__link">Logout</a></li>
+            {{/if}}
+            {{#unless isAuthenticated}}
+            <li class="navigation__item"><a href="/index" class="navigation__link">Home</a></li>
+            <li class="navigation__item"><a href="/games" class="navigation__link">Games</a></li>
+            <li class="navigation__item"><a href="/players" class="navigation__link">Players</a></li>
+            <li class="navigation__item"><a href="/signin" class="navigation__link">Login</a></li>
+            {{/unless}}
+        </ul>
+    </nav>
+</div>

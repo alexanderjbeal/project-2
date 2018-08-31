@@ -1,0 +1,27 @@
+{{> navigation}}
+
+<section class="section-games">
+  
+  <div class="u-center-text  u-margin-bottom-lg">
+    <h2>
+      <span class="heading-secondary">Games</span>
+    </h2>
+  </div>
+  
+  {{#if isAuthenticated}}
+  <form class="add-game" action="api/games" method="POST">
+    <label for="time">Time</label>
+    <input type="number" id="time" name="time">
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location">
+    <label for="max_players">Max Players</label>
+    <input type="text" id="max_players" name="max_players">
+    <input class="btn" type="submit" value="Create Game"  />
+  </form>
+  {{/if}}
+
+  {{#unless isAuthenticated}} {{/unless}}
+
+<div class="games-container"></div>
+
+</section>

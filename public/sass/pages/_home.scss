@@ -1,0 +1,43 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -20vh;
+}
+
+.section-games {
+    // background-color: $color-black;
+    background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
+    padding: 10rem 0 5rem 0;
+}
+
+.section-players {
+    // background-color: $color-black;
+    background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
+    padding: 10rem 0 5rem 0;
+}
+
+.section-user {
+    padding: 15rem 0;
+    // background-image: linear-gradient(to right bottom, $color-blue-light, $color-blue-dark);
+    background-color: transparent;
+}
+
+.user {
+    background-image: linear-gradient(105deg,
+    rgba($color-blue-light, .9) 0%,
+    rgba($color-blue-dark, .9) 50%,
+    transparent 50%),
+    url(../../img/background.jpg);
+    background-position: bottom;
+
+    background-size: 100%;
+    border-radius: $default-border-radius;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    height: 40rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}
