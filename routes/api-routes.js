@@ -2,17 +2,20 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-
     // GET route for getting all players/users
     app.get("/api/all", (req, res) => {
-      db.User.findAll({}).then( (dbPlayers) => {
+      db.User.findAll({
+        include: [db.Game]
+      }).then( (dbPlayers) => {
         res.json(dbPlayers);
       });
     });
 
     // GET route for getting all gams
     app.get('/api/games', (req, res) => {
-      db.Game.findAll({}).then(function(dbGame) {
+      db.Game.findAll({
+        include: [db.User]
+      }).then(function(dbGame) {
         res.json(dbGame);
       });
     });
@@ -28,9 +31,6 @@ module.exports = function(app) {
       });
     });
   
-
-
-
     //delete to delete a game by player id
     //validating if ID is the creater ID to delete???????
     // app.delete("/api/games/:id", function(req, res) {
@@ -65,6 +65,5 @@ module.exports = function(app) {
     //   });
     // });
   //do we want a post/update/delete?
- 
 
 };

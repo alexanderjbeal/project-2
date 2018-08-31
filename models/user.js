@@ -1,6 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
 
-    var User = sequelize.define('User', {
+    const User = sequelize.define('User', {
  
         id: {
             autoIncrement: true,
@@ -48,6 +48,23 @@ module.exports = function(sequelize, Sequelize) {
         }
  
     });
+
+    User.associate = function (models) {
+        // Associating User with Game
+        // When an User is deleted, also delete any associated Game
+        User.hasMany(models.Game, {
+            onDelete: "cascade"
+        });
+    };
+
+    User.associate = function (models) {
+        User.belongsToMany(models.Game, {
+            through: {
+                model: models.Sport
+            },
+            foreignKey: 'id'
+        });
+    }
 
     // User.associate = function(models) {
     //     // Associating User with Game

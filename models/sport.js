@@ -1,30 +1,33 @@
 module.exports = function (sequelize, Sequelize) {
 
-    var Sport = sequelize.define('Sport', {
-      numberOfUsers: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-        //type: sequelize.ARRAY(sequelize.INTEGER), defaultValue: null
-      }
-    });
+  var Sport = sequelize.define('Sport', {
+    numberOfUsers: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      constraints: false
+    }
 
-    // Sport.associate = function (models) {
-    //   Sport.belongsTo(models.user, {
-    //     onDelete: "CASCADE",
-    //     foreignKey: {
-    //       allowNull: true
-    //     }
-    //   }),
-    //     Sport.belongsTo(models.sport, {
-    //       onDelete: "CASCADE",
-    //       foreignKey: {
-    //         allowNull: true
-    //       }
-    //     });
-  
-    // }
+  });
 
-    Sport.sync();
-    return Sport;
-    
-  };
+  // Sport.associate = function (models) {
+  //   Sport.belongsTo(models.User, {
+  //     onDelete: "CASCADE",
+  //     foreignKey: {
+  //       name: "UserId",
+  //       allowNull: true
+  //     }
+  //   }),
+  //     Sport.belongsTo(models.Sport, {
+  //       onDelete: "CASCADE",
+  //       foreignKey: {
+  //         name: "gameGameId",
+  //         allowNull: true
+  //       }
+  //     });
+
+  // }
+
+  Sport.sync();
+  return Sport;
+
+};

@@ -1,10 +1,5 @@
 module.exports = function (sequelize, Sequelize) {
-  var Game = sequelize.define('Game', {
-      id: {
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
+  const Game = sequelize.define('Game', {
       time: {
           type: Sequelize.INTEGER,
           notEmpty: true
@@ -21,23 +16,26 @@ module.exports = function (sequelize, Sequelize) {
       //     type: Sequelize.BOOLEAN,
       //     defaultValue: true
       // }
-    //   time_stamp: {
-    //       type: 'TIMESTAMP',
-    //       defaultValue: Sequelize.CURRENT_TIMESTAMP,
-    //       allowNull: false,
-    //       defaultValue: true
-    //   }
+      // time_stamp: {
+      //     type: 'TIMESTAMP',
+      //     defaultValue: Sequelize.CURRENT_TIMESTAMP,
+      //     allowNull: false,
+      //     defaultValue: true
+      // }
   });
 
-  // Game.associate = function(models) {
-  //   // We're saying that a Game should belong to an User
-  //   // A Game can't be created without a User due to the foreign key constraint
-  //   Game.belongsTo(models.User, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Game.associate = function(models) {
+    // We're saying that a Game should belong to an User
+    // A Game can't be created without a User due to the foreign key constraint
+    Game.belongsTo(models.User, {
+      ondelete: "CASCADE",
+      foreignKey: {
+          name: "UserId",
+          allowNull: false,
+          constraints: false
+      }
+    });
+  };
 
   Game.sync();
   return Game;
