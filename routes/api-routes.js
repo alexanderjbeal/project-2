@@ -30,7 +30,52 @@ module.exports = function(app) {
         res.redirect("/games");
       });
     });
+
+    //Checking to see if there are players in a game.
+    //updating the game table to full if there are enough players
+    //adding a player to a userGame if not full.
+
+    app.get("/api/games", (req, res) => {
+      db.userGame.findAll({
+          include: [db.game, db.User],
+          where: {
+              GameId: req.params.GameId,
+              UserId: req.params.UserId,
   
+          }
+      }).then(function(currentPlayers) {
+          res.json(currentPlayers);
+  
+          if (currentPlayers.length >= maxPlayers) {
+              //could change this alert to whatever
+              alert("Game is Full. Please join another.");
+  
+              //query to 
+                  db.Game.update({
+                      max_players: {
+                          notEmpty: false
+                      }
+                  }).then(function (updateMaxPlayers) {
+                      res.json(updateMaxPlayers);
+                  });
+              } else {
+  
+                  app.put("/api/games", function(req, res) {
+                      db.userGame.update({
+                          where:{
+                              gameId: req.params.GameId,
+                              UserId: req.params.UserId
+                          }
+                      }).then(function(dbUpdateUserGames) {
+                          console.log(dbUpdateUserGames);
+                          res.json(dbUpdateUserGames);
+                      });
+                  })
+              };
+          }
+      )
+  })
+
     //delete to delete a game by player id
     //validating if ID is the creater ID to delete???????
     // app.delete("/api/games/:id", function(req, res) {
