@@ -111,6 +111,16 @@ body {
         padding-left: 1rem;
     }
 
+    &--name {
+        font-size: 1.1rem;
+        letter-spacing: .3rem;
+        padding-left: 1rem;
+
+        @include respond(phone) {
+            font-size: 1.8rem;
+        }
+    }
+
     &--location {
         color: $color-white;
         font-size: 4rem;

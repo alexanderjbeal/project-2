@@ -12,23 +12,15 @@
                                     </div>
        
                                     <div class="player-card__details">
-                                    <p>Name: ${data[i].firstname} ${data[i].lastname}</p>
+                                    <span class="game-details game-details--name">${data[i].firstname} ${data[i].lastname}</span>
                                     </div>
                                 </div>
                                 <div class="player-card__side player-card__side--back player-card__side--back-1">
                                     <div class="player-card__cta">
-                                        <div class="col-1-of-3">
-                                            <span class="game-details game-details--icon">Directions</span>
-                                            <span class="game-details game-details--icon"><i class="fas fa-street-view fa-4x icon-back"></i></span>
-                                        </div>
-                                        <div class="col-1-of-3">
-                                        <span class="game-details game-details--icon">Save</span>
-                                        <span class="game-details game-details--icon"><i class="far fa-bookmark fa-4x icon-back"></i></span>
-                                        </div>
-                                        <div class="col-1-of-3">
-                                        <span class="game-details game-details--icon">Join</span>
-                                        <span class="game-details game-details--icon"><i class="fas fa-user-plus fa-4x icon-back"></i></span>
-                                        </div>
+                                    <div class="card__price-box">
+                                    <span class="game-details game-details--icon">Invite</span>
+                                    <span class="game-details game-details--icon"><i class="fas fa-basketball-ball fa-4x icon-back"></i></span>
+                                </div>
                                     </div>
                                 </div>
                             </div>

@@ -35,7 +35,7 @@
         position: fixed;
         top: 7rem;
         right: 7rem;
-        background-image: linear-gradient(to left, $color-blue, $color-primary);
+        background-image: linear-gradient(to right, $color-blue-light, $color-primary);
         z-index: 4000;
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
