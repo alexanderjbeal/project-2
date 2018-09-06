@@ -1,15 +1,21 @@
-module.exports = function(sequelize, Sequelize) {
+module.exports = (sequelize, Sequelize) => {
 
     const User = sequelize.define('User', {
  
         firstname: {
             type: Sequelize.STRING,
-            notEmpty: true
+            notEmpty: true,
+            validate: {
+                len: [1, 12]
+            }
         },
  
         lastname: {
             type: Sequelize.STRING,
-            notEmpty: true
+            notEmpty: true,
+            validate: {
+                len: [1, 15]
+            }
         },
  
         username: {
@@ -43,24 +49,14 @@ module.exports = function(sequelize, Sequelize) {
  
     });
 
-    User.associate = function (models) {
-    // Associating User with Game
-    // When an User is deleted, also delete any associated Game
+    User.associate = (models) => {
 
       models.User.belongsToMany(models.Game, {
         through: models.UserGame
       });
     };
 
-    // User.associate = function(models) {
-    //     // Associating User with Game
-    //     // When a User is deleted, also delete any associated Games
-    //     User.hasMany(models.Game, {
-    //       onDelete: "cascade"
-    //     });
-    //   };
-
     User.sync();
     return User;
-
+    
 };

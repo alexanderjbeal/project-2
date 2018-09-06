@@ -1,7 +1,6 @@
 .DS_Store
 package-lock.json
 .eslintrc.json
-config/config.json
 
 # Logs
 logs

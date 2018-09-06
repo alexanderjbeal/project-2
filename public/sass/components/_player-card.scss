@@ -1,15 +1,19 @@
-.card {
+.player-card {
     // Functionality
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
-    height: 52rem;
-    margin-bottom: 6.5rem;
+    height: 46rem;
+    margin-bottom: 4.5rem;
     z-index: 1000;
+
+    @include respond(phone) {
+        height: 40rem;
+    }
 
     &__side {
         font-size: 2rem;
-        height: 52rem;
+        height: 46rem;
         transition: all .8s ease;
         position: absolute;
         top: 0;
@@ -20,26 +24,31 @@
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
+        @include respond(phone) {
+            height: 40rem;
+        }
+
         &--front {
-            background-color: $color-white;
+            background-color: $color-grey-dark-3;
+            // background-image: linear-gradient($color-blue, $color-primary);
         }
     
         &--back {
             transform: rotateY(180deg);
 
             &-1 {
-                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+                background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
             }
 
         }
     }
 
 
-    &:active &__side--front {
+    &:hover &__side--front {
         transform: rotateY(-180deg);
     }
 
-    &:active &__side--back {
+    &:hover &__side--back {
         transform: rotateY(0);
     }
 
@@ -47,11 +56,17 @@
     &__picture {
         background-size: cover;
         height: 38rem;
-        background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        background-position: center;
+        // background-blend-mode: screen;
+        // -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
+
+        @include respond(phone) {
+            background-position: top;
+            height: 30rem;
+        }
         
 
         &--1 {

@@ -5,28 +5,22 @@
         for (var i = 0; i < data.length; i++) {
         let card = $(`
         <div class="col-1-of-3">
-                            <div class="card">
-                                <div class="card__side card__side--front">
-                                    <div class="card__picture card__picture--1">
+                            <div class="player-card">
+                                <div class="player-card__side player-card__side--front">
+                                    <div class="player-card__picture player-card__picture--1">
                                         &nbsp;
                                     </div>
-                                    <h4 class="card__heading">
-                                        <span class="card__heading-span card__heading-span--1">
-                                        ${data[i].firstname}
-                                        </span>
-                                    </h4>
-                                    <div class="card__details">
-                                    <p>Name: ${data[i].firstname} ${data[i].lastname}</p>
-                                    <p>Location:</p>
+       
+                                    <div class="player-card__details">
+                                    <span class="game-details game-details--name">${data[i].firstname} ${data[i].lastname}</span>
                                     </div>
                                 </div>
-                                <div class="card__side card__side--back card__side--back-1">
-                                    <div class="card__cta">
-                                        <div class="card__price-box">
-                                            <p class="card__price-only">Placeholder</p>
-                                            <p class="card__price-value">${data[i].firstname}</p>
-                                        </div>
-                                        <a href="#" class="btn btn--white">Invite</a>
+                                <div class="player-card__side player-card__side--back player-card__side--back-1">
+                                    <div class="player-card__cta">
+                                    <div class="card__price-box">
+                                    <span class="game-details game-details--icon">Invite</span>
+                                    <span class="game-details game-details--icon"><i class="fas fa-basketball-ball fa-4x icon-back"></i></span>
+                                </div>
                                     </div>
                                 </div>
                             </div>

@@ -50,6 +50,7 @@
 
     &--header {
         display: block !important;
+        width: 100%;
         background-color: $color-blue;
         color: white;
         animation: moveInBottom 1.5s ease;
@@ -58,6 +59,46 @@
 
         &::after {
             background-color: $color-blue;
+        }
+    }
+
+    &--form {
+        display: block !important;
+        width: 80%;
+        margin: 0 auto;
+        background-color: $color-black;
+        color: $color-white;
+        font-weight: bold;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--blue {
+        background-color: $color-blue;
+        color: white;
+        animation: moveInBottom 1.5s ease;
+        // font-weight: 300;
+        // letter-spacing: .5rem !important;
+
+        &::after {
+            background-color: $color-blue;
+        }
+    }
+
+    &--gradient {
+        background-color: transparent;
+        color: white;
+        // font-weight: 300;
+        // letter-spacing: .5rem !important;
+
+        &:hover {
+            background-image: linear-gradient(to right, $color-blue, $color-primary);
+        }
+
+        &::after {
+            background-image: linear-gradient(to right, $color-blue, $color-primary);
         }
     }
 

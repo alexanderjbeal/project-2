@@ -8,8 +8,8 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
  
     app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/players',
-            failureRedirect: '/signup'
+            successRedirect: '/games',
+            failureRedirect: '/404'
         }
     ));
  
@@ -18,12 +18,13 @@ module.exports = function(app, passport) {
     app.get('/logout', authController.logout);
  
     app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/index',
-            failureRedirect: '/signin'
+            successRedirect: '/games',
+            failureRedirect: '/404'
         }
     ));
 
     // Pages
+    app.get('/', authController.index);
     app.get('/index', authController.index);
     app.get('/games', authController.games);
     app.get('/players', authController.players);
@@ -31,7 +32,7 @@ module.exports = function(app, passport) {
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();
-        res.redirect('/signin');
+        res.redirect('/index');
     }
     
 }
