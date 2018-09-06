@@ -10,8 +10,14 @@ module.exports = function(app) {
         order: [ ["lastname", "DESC"] ]
       }).then( (dbPlayers) => {
         res.json(dbPlayers);
+      }).catch((err) => {
+        res.render('players', {
+          error: err
+        });
+        // Handle any error that occurred in any of the previous
+        // promises in the chain.
       });
-    });
+  });
 
     // GET route for getting all gams
     app.get('/api/games', (req, res) => {
@@ -20,8 +26,14 @@ module.exports = function(app) {
         order: [ ["date", "DESC"] ]
       }).then(function(dbGame) {
         res.json(dbGame);
+      }).catch((err) => {
+        res.render('games', {
+          error: err
+        });
+        // Handle any error that occurred in any of the previous
+        // promises in the chain.
       });
-    });
+  });
     
     // POST route for creating a new game
     app.post("/api/games", function(req, res) {
@@ -32,8 +44,14 @@ module.exports = function(app) {
         max_players: req.body.max_players
       }).then(function() {
         res.redirect("/games");
+      }).catch((err) => {
+        res.render('games', {
+          error: err
+        });
+        // Handle any error that occurred in any of the previous
+        // promises in the chain.
       });
-    });
+  });
 
     // POST route for creating userGames
     // NEWEST ROUTE
@@ -43,8 +61,14 @@ module.exports = function(app) {
             UserId: req.params.UserId
         }).then(function(){
             res.redirect("/games");
-        });
-    });
+        }).catch((err) => {
+            res.render('games', {
+              error: err
+            });
+            // Handle any error that occurred in any of the previous
+            // promises in the chain.
+          });
+      });
 
 
     // Checking to see if there are players in a game.
