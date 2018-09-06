@@ -12,15 +12,15 @@ module.exports = (sequelize, Sequelize) => {
           type: Sequelize.TEXT,
           notEmpty: true,
           validate: {
-            len: [1, 15]
+            len: [1, 16]
         }
       },
       max_players: {
         type: Sequelize.INTEGER,
         notEmpty: true,
         validate: {
-          min: { args: 6, msg: "Pick between 6-10" },
-          max: { args: 10, msg: "Pick between 6-10" },
+          min: { args: 6, error: "Pick between 6-10" },
+          max: { args: 10, error: "Pick between 6-10" },
         }
       }
       // full_game: {

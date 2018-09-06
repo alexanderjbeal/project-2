@@ -26,10 +26,16 @@
 
               <div class="form__group">
                 <label for="max_players" class="form__label">Number of players</label>
-                <input type="number" class="form__input" id="max_players" name="max_players" required>
+                <input type="number" class="form__input" id="max_players" name="max_players" placeholder="6-10" required>
               </div>
 
               <input class="btn btn--form" type="submit" value="Create Game"  />
+
+              {{#if error}}
+
+              <div class="alert alert-danger">{{error}}</div> 
+
+              {{/if}}
 
             </form>
             {{/if}}
@@ -87,7 +93,11 @@
               
               <input class="btn btn--form" type="submit" value="Register" />
 
+              
+
             </form>
+
+              
 
                     
                 </div>
