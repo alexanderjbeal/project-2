@@ -1,7 +1,5 @@
 .page-navigation {
 
-    
-
     &__menu {
         display: block;
         padding: 3rem;
@@ -23,7 +21,10 @@
 
         ul {
             list-style: none;
-            
+
+            @include respond(phone) {
+                height: 7rem;
+            }
         }
 
         li {
@@ -38,18 +39,20 @@
                 margin-right: 0;
             }
 
-            &:not(:first-child) {
-
-                // @include respond(tab-port) {
-                //     opacity: 0;
-                //     visibility: hidden;
-                // }
-            
+            &:nth-child(n+3) {
                 @include respond(phone) {
                     opacity: 0;
                     visibility: hidden;
                 }
-    
+            }
+
+            &:nth-child(-n+2) {
+                @include respond(phone) {
+                    width: 45%;
+                    display: inline-block;
+                    // margin: 0;
+                    // padding: 0;
+                }
             }
         }
     }

@@ -106,9 +106,9 @@ body {
     /* animation-delay: 3s; */ }
     @media (max-width: 37.5em) {
       .heading-primary--main {
-        letter-spacing: .1rem;
-        font-size: 7rem;
-        line-height: 6rem;
+        letter-spacing: -.2rem;
+        font-size: 9rem;
+        line-height: 7.5rem;
         text-align: center; } }
   .heading-primary--sub {
     display: block;
@@ -268,9 +268,9 @@ body {
   background-color: transparent;
   color: white; }
   .btn--gradient:hover {
-    background-image: linear-gradient(to right, #25abf8, #55c57a); }
+    background-image: linear-gradient(to right, #007CC2, #55c57a); }
   .btn--gradient::after {
-    background-image: linear-gradient(to right, #25abf8, #55c57a); }
+    background-image: linear-gradient(to right, #007CC2, #55c57a); }
 
 .btn::after {
   content: "";
@@ -405,7 +405,7 @@ body {
     height: 100%; }
     .game-card__picture--1 {
       height: 100%;
-      background-image: url(../img/game-background.jpg);
+      background-image: url(../img/game-background-03.jpg);
       background-size: cover;
       background-position: center; }
   .game-card__heading {
@@ -444,7 +444,7 @@ body {
     .game-card__game-details--button-bottom {
       height: 5rem;
       width: 70%;
-      background-image: linear-gradient(to right, #25abf8, #55c57a);
+      background-image: linear-gradient(to right, #007CC2, #55c57a);
       position: absolute;
       bottom: 0;
       left: 0; }
@@ -617,7 +617,7 @@ body {
     text-align: center; }
 
 .row {
-  max-width: 110rem;
+  max-width: 100rem;
   margin: 0 auto; }
   @media (max-width: 56.25em) {
     .row {
@@ -667,7 +667,7 @@ body {
     width: calc(3 * ((100% - 3 * 4rem) / 4) + 2 * 4rem); }
 
 .players-container {
-  max-width: 110rem;
+  max-width: 100rem;
   margin: 0 auto; }
   @media (max-width: 56.25em) {
     .players-container {
@@ -696,7 +696,7 @@ body {
     width: calc((100% - 2 * 4rem) / 3); }
 
 .games-container {
-  max-width: 110rem;
+  max-width: 100rem;
   margin: 0 auto; }
   @media (max-width: 56.25em) {
     .games-container {
@@ -743,8 +743,12 @@ body {
     position: absolute;
     display: inline-block;
     z-index: 2000; }
+    @media (max-width: 37.5em) {
+      .header__background-layer-01 {
+        height: 65%;
+        bottom: 0; } }
   .header__background-layer-02 {
-    background-image: linear-gradient(120deg, transparent 0%, transparent 49%, #005a8f 49%);
+    background-image: linear-gradient(120deg, transparent 0%, transparent 49%, #007CC2 49%, #55c57a 90%);
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -767,6 +771,10 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 3000; }
+    @media (max-width: 37.5em) {
+      .header__text-box--left {
+        left: 50%;
+        top: 28%; } }
   .header__text-box--right {
     position: absolute;
     top: 50%;
@@ -841,7 +849,7 @@ body {
   position: fixed;
   top: 7rem;
   right: 7rem;
-  background-image: linear-gradient(to right bottom, #25abf8, #55c57a);
+  background-image: linear-gradient(to left, #007CC2, #55c57a);
   z-index: 4000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
   @media (max-width: 56.25em) {
@@ -914,9 +922,9 @@ body {
     left: 0;
     transition: all .2s; }
   .navigation__icon::before {
-    top: -.5rem; }
+    top: -.6rem; }
   .navigation__icon::after {
-    top: .5rem; }
+    top: .6rem; }
 
 .navigation__button:hover .navigation__icon::before {
   top: -.7rem; }
@@ -951,6 +959,9 @@ body {
   border-bottom: 1px solid white; }
   .page-navigation__menu ul {
     list-style: none; }
+    @media (max-width: 37.5em) {
+      .page-navigation__menu ul {
+        height: 7rem; } }
   .page-navigation__menu li {
     margin: 0;
     padding: 0;
@@ -960,9 +971,13 @@ body {
     .page-navigation__menu li:nth-child(4n) {
       margin-right: 0; }
     @media (max-width: 37.5em) {
-      .page-navigation__menu li:not(:first-child) {
+      .page-navigation__menu li:nth-child(n+3) {
         opacity: 0;
         visibility: hidden; } }
+    @media (max-width: 37.5em) {
+      .page-navigation__menu li:nth-child(-n+2) {
+        width: 45%;
+        display: inline-block; } }
 
 .section-players {
   background-color: #000;

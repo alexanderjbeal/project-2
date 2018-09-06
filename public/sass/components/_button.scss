@@ -94,11 +94,11 @@
         // letter-spacing: .5rem !important;
 
         &:hover {
-            background-image: linear-gradient(to right, $color-blue-light, $color-primary);
+            background-image: linear-gradient(to right, $color-blue, $color-primary);
         }
 
         &::after {
-            background-image: linear-gradient(to right, $color-blue-light, $color-primary);
+            background-image: linear-gradient(to right, $color-blue, $color-primary);
         }
     }
 

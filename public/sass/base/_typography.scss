@@ -36,9 +36,9 @@ body {
         /* animation-delay: 3s; */
 
         @include respond(phone) {
-            letter-spacing: .1rem;
-            font-size: 7rem;
-            line-height: 6rem;
+            letter-spacing: -.2rem;
+            font-size: 9rem;
+            line-height: 7.5rem;
             text-align: center;
         }
     }

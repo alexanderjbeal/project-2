@@ -57,7 +57,7 @@
 
         &--1 {
             height: 100%;
-            background-image: url(../img/game-background.jpg);
+            background-image: url(../img/game-background-03.jpg);
             background-size: cover;
             background-position: center;
         }
@@ -116,7 +116,7 @@
             height: 5rem;
             width: 70%;
             // background-color: $color-blue;
-            background-image: linear-gradient(to right, $color-blue-light, $color-primary);
+            background-image: linear-gradient(to right, $color-blue, $color-primary);
             position: absolute;
             bottom: 0;
             left: 0;
