@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 let env = require('dotenv').load();
 let exphbs = require('express-handlebars');
 
-let PORT = process.env.PORT || 5000;
+let PORT = process.env.PORT || 3000;
 
 // BodyParser (Middleware)
 app.use(bodyParser.urlencoded({ extended: true }));
