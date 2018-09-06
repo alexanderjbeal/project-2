@@ -18,7 +18,7 @@ $color-grey-light-2: #eee;
 
 $color-grey-dark: #777;
 $color-grey-dark-2: #999;
-$color-grey-dark-3: #333;
+$color-grey-dark-3: #202020;
 
 $color-white: #fff;
 $color-black: #000;
@@ -29,7 +29,9 @@ $default-font-size: 1.6rem;
 // Grid
 $grid-width: 110rem;
 $gutter-vertical: 8rem;
-$gutter-horizontal: 6rem;
+$gutter-vertical-sm: 6rem;
+$gutter-horizontal: 4rem;
+$gutter-horizontal-sm: 2.5rem;
 
 // Border Radius
 $default-border-radius: 3px;

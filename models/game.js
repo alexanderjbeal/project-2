@@ -1,7 +1,11 @@
-module.exports = function (sequelize, Sequelize) {
+module.exports = (sequelize, Sequelize) => {
   const Game = sequelize.define('Game', {
+      date: {
+          type: Sequelize.DATE,
+          notEmpty: true
+      },
       time: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.TIME,
           notEmpty: true
       },
       location: {
@@ -24,15 +28,13 @@ module.exports = function (sequelize, Sequelize) {
       // }
   });
 
-  Game.associate = function(models) {
+  Game.associate = (models) => {
     // We're saying that a Game should belong to an User
     // A Game can't be created without a User due to the foreign key constraint
     models.Game.belongsToMany(models.User, {
       through: models.UserGame
     })
   };
-
   Game.sync();
   return Game;
-
 };

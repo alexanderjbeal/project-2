@@ -3,7 +3,14 @@ body {
     font-weight: 400;
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
 }
 
 .heading-primary {
@@ -17,16 +24,23 @@ body {
 
     &--main {
         display: block;
+        width: 100%;
         font-size: 11rem;
         font-weight: 700;
         letter-spacing: -.4rem;
         animation: moveInTop 1.5s ease-out .75s;
         animation-fill-mode: backwards;
-        text-align: left;
         line-height: 10rem;
         text-shadow: 0  1rem 2rem rgba($color-black, .8);
         /* animation-iteration-count: 3; */
         /* animation-delay: 3s; */
+
+        @include respond(phone) {
+            letter-spacing: .1rem;
+            font-size: 7rem;
+            line-height: 6rem;
+            text-align: center;
+        }
     }
     
     &--sub {
@@ -34,8 +48,10 @@ body {
         font-size: 1.5rem;
         font-weight: 300;
         letter-spacing: .5rem;
-        animation: moveInBottom 2s ease-out;
-        margin-top: 3rem;
+        animation: moveInLeft 1.25s ease-out 1s;
+        animation-fill-mode: backwards;
+        margin-bottom: 1.5rem;
+        text-align: left;
     }
 
     &:hover {
@@ -62,9 +78,39 @@ body {
 }
 
 .heading-tertiary {
-    font-size: $default-font-size;
+    font-size: 5rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: -.2rem;
+}
+
+.game-details {
+    color: $color-white;
+    text-transform: uppercase;
+
+    &--main {
+        color: $color-white;
+        font-size: 5rem;
+        font-weight: 700;
+        letter-spacing: -.2rem;
+    }
+
+    &--sub {
+        font-size: 1.1rem;
+        letter-spacing: .3rem;
+        padding-left: 1rem;
+    }
+
+    &--location {
+        color: $color-white;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: -.1rem;
+    }
+}
+
+.icon {
+    color: $color-white;
 }
 
 .paragraph {
@@ -73,4 +119,15 @@ body {
     &:not(:last-child) {
         margin-bottom: 3rem;
     }
+}
+
+.heading-page {
+
+    &--main {
+        color: $color-white;
+        font-size: 5rem;
+        font-weight: 700;
+        letter-spacing: -.2rem;
+    }
+    
 }

@@ -56,3 +56,14 @@
         opacity: 1;
     }
 }
+
+@keyframes grow {
+    0% {
+        transform: scaleY(0)
+
+    }
+    100% {
+        transform: scaleY(50rem);
+    }
+    
+}

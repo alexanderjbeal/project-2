@@ -7,8 +7,8 @@
     &__input {
         color: inherit;
         font-family: inherit;
-        font-size: 1.5rem;
-        padding: 1.5rem 2rem;
+        font-size: 1.7rem;
+        padding: 1rem 2rem;
         border-radius: 2px;
         background-color: rgba($color-white, .5);
         border: none;
@@ -16,6 +16,9 @@
         width: 80%;
         display: block;
         transition: all .3s;
+        margin: 0 auto;
+        text-align: center;
+        color: $color-white;
 
         &:focus {
             outline: none;
@@ -33,12 +36,16 @@
     }
 
     &__label {
-        font-size: 1.2rem;
-        font-weight: 700;
+        font-size: 2rem;
+        font-weight: 300;
+        letter-spacing: .3rem;
         margin-left: 2rem;
         margin-top: .7rem;
         display: block;
         transition: all .3s;
+        text-align: center;
+        color: $color-white;
+        text-transform: uppercase;
     }
 
     &__input:placeholder-shown + &__label {

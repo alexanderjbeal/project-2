@@ -1,15 +1,22 @@
-.header {
+.section-games {
+    background-color: $color-black;
+    // background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
+    padding: 5rem 0 10rem 0;
+}
+
+.games-header {
     height: 95vh;
-    background-color: black;
+    // background-image: url(../../img/game-background.jpg);
     // background-image: linear-gradient(to bottom, $color-blue-light, $color-primary);
+    background-color: black;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     position: relative;
     // -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__background-layer-01 {
-        background-image: url(../../img/king.png);
+        // background-image: url(../../img/king.png);
         height: 100%;
         width: 100%;
         background-size: cover;
@@ -25,7 +32,7 @@
             120deg,
             transparent 0%,
             transparent 49%,
-            $color-blue-dark 49%);
+            $color-black 49%);
         background-size: cover;
         height: 100%;
         width: 100%;
@@ -48,39 +55,11 @@
     }
 
     &__text-box {
-
-        &--left {
-            position: absolute;
-            top: 50%;
-            left: 22%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 3000;
-        }
-
-        &--right {
-            position: absolute;
-            top: 50%;
-            right: 0%;
-            transform: translate(-50%, -50%);
-            text-align: right;
-            z-index: 3000;
-        }
-  
-    }
-
-    &__menu {
-        padding: 3rem;
-        margin: 0 auto;
-        width: 80%;
-        color: $color-white;
-        z-index: 4000;
-        text-transform: uppercase;
-        letter-spacing: .3rem;
-        border-bottom: 1px solid white;
-
-        ul {
-            list-style: none;
-        }
+        position: absolute;
+        top: 50%;
+        left: 22%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 3000;
     }
 }

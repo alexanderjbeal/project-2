@@ -1,4 +1,5 @@
 var db = require("../models");
+// let moment = require('moment');
 
 module.exports = function(app) {
 
@@ -23,13 +24,71 @@ module.exports = function(app) {
     // POST route for creating a new game
     app.post("/api/games", function(req, res) {
       db.Game.create({
+        date: req.body.date,
         time: req.body.time,
         location: req.body.location,
-        max_player: req.body.max_player
+        max_players: req.body.max_players
       }).then(function() {
         res.redirect("/games");
       });
     });
+
+    // POST route for creating userGames
+    // NEWEST ROUTE
+    app.post("/api/games", function(req, res) {
+        db.userGame.create({
+            GameId: req.params.GameId,
+            UserId: req.params.UserId
+        }).then(function(){
+            res.redirect("/games");
+        });
+    });
+
+
+    // Checking to see if there are players in a game.
+    // Updating the game table to full if there are enough players
+    // Adding a player to a userGame if not full.
+
+    app.get("/api/games", (req, res) => {
+      db.userGame.findAll({
+          include: [db.Game, db.User],
+          where: {
+              GameId: req.params.GameId,
+              UserId: req.params.UserId,
+  
+          }
+      }).then(function(currentPlayers) {
+          res.json(currentPlayers);
+  
+          if (currentPlayers.length >= maxPlayers) {
+              //could change this alert to whatever
+              alert("Game is Full. Please join another.");
+  
+              //query to 
+                  db.Game.update({
+                      max_players: {
+                          notEmpty: false
+                      }
+                  }).then(function (updateMaxPlayers) {
+                      res.json(updateMaxPlayers);
+                  });
+              } else {
+  
+                  app.put("/api/games", function(req, res) {
+                      db.UserGame.update({
+                          where:{
+                              gameId: req.params.GameId,
+                              UserId: req.params.UserId
+                          }
+                      }).then(function(dbUpdateUserGames) {
+                          console.log(dbUpdateUserGames);
+                          res.json(dbUpdateUserGames);
+                      });
+                  })
+              };
+          }
+      )
+  });
   
     //delete to delete a game by player id
     //validating if ID is the creater ID to delete???????

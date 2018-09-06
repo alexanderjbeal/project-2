@@ -78,14 +78,27 @@
 
     [class^="col-"] {
         float: left;
-        margin-right: $gutter-horizontal;
+        margin-right: $gutter-horizontal-sm;
+    }
 
-        &:nth-child(3n) {
+    .col-1-of-1 {
+        width: calc((100% - 2 * #{$gutter-horizontal}));
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+
+        &:nth-child(2n) {
             margin-right: 0;
         }
     }
 
     .col-1-of-3 {
         width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
     }
+
 }
