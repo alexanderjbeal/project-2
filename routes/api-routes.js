@@ -31,6 +31,17 @@ module.exports = function(app) {
       });
     });
 
+    //POST route for creating userGames
+    //NEWEST ROUTE
+    app.post("/api/games", function(req, res) {
+        db.userGame.create({
+            GameId: req.params.GameId,
+            UserId: req.params.UserId
+        }).then(function(){
+            res.redirect("/games");
+        });
+    });
+
     //Checking to see if there are players in a game.
     //updating the game table to full if there are enough players
     //adding a player to a userGame if not full.
