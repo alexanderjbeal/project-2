@@ -16,5 +16,4 @@
 
 * [Alexander Beal](https://github.com/alexanderjbeal)
 * [Michael Surface](https://github.com/msurface)
-
-
+* [Brett Gonterman](https://github.com/bagonterman)
