@@ -6,7 +6,8 @@ module.exports = function(app) {
     // GET route for getting all players/users
     app.get("/api/all", (req, res) => {
       db.User.findAll({
-        include: [db.Game]
+        include: [db.Game],
+        order: [ ["lastname", "DESC"] ]
       }).then( (dbPlayers) => {
         res.json(dbPlayers);
       });
@@ -15,7 +16,8 @@ module.exports = function(app) {
     // GET route for getting all gams
     app.get('/api/games', (req, res) => {
       db.Game.findAll({
-        include: [db.User]
+        include: [db.User], 
+        order: [ ["date", "DESC"] ]
       }).then(function(dbGame) {
         res.json(dbGame);
       });
@@ -36,7 +38,7 @@ module.exports = function(app) {
     // POST route for creating userGames
     // NEWEST ROUTE
     app.post("/api/games", function(req, res) {
-        db.userGame.create({
+        db.UserGame.create({
             GameId: req.params.GameId,
             UserId: req.params.UserId
         }).then(function(){
@@ -50,7 +52,7 @@ module.exports = function(app) {
     // Adding a player to a userGame if not full.
 
     app.get("/api/games", (req, res) => {
-      db.userGame.findAll({
+      db.UserGame.findAll({
           include: [db.Game, db.User],
           where: {
               GameId: req.params.GameId,

@@ -2,6 +2,15 @@
     background-color: $color-black;
     // background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
     padding: 5rem 0 10rem 0;
+    height: 95vh;
+
+    @include respond(tab-port) {
+        padding: 0 0 5rem 0;
+    }
+
+    @include respond(phone) {
+        padding: 0 0 10rem 0;
+    }
 }
 
 .games-header {

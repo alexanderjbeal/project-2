@@ -87,6 +87,9 @@ body {
 .game-details {
     color: $color-white;
     text-transform: uppercase;
+    text-align: center;
+    display: block;
+    width: 100%;
 
     &--main {
         color: $color-white;
@@ -96,6 +99,13 @@ body {
     }
 
     &--sub {
+        font-size: 1.1rem;
+        letter-spacing: .3rem;
+        padding-left: 1rem;
+        color: $color-grey-dark;
+    }
+
+    &--icon {
         font-size: 1.1rem;
         letter-spacing: .3rem;
         padding-left: 1rem;
@@ -111,6 +121,11 @@ body {
 
 .icon {
     color: $color-white;
+}
+
+.icon-back {
+    color: $color-white;
+    padding-top: 1.5rem;
 }
 
 .paragraph {

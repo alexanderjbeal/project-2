@@ -10,23 +10,25 @@
                                     <div class="player-card__picture player-card__picture--1">
                                         &nbsp;
                                     </div>
-                                    <h4 class="player-card__heading">
-                                        <span class="player-card__heading-span player-card__heading-span--1">
-                                        ${data[i].firstname}
-                                        </span>
-                                    </h4>
+       
                                     <div class="player-card__details">
                                     <p>Name: ${data[i].firstname} ${data[i].lastname}</p>
-                                    <p>Location:</p>
                                     </div>
                                 </div>
                                 <div class="player-card__side player-card__side--back player-card__side--back-1">
                                     <div class="player-card__cta">
-                                        <div class="player-card__price-box">
-                                            <p class="player-card__price-only">Placeholder</p>
-                                            <p class="player-card__price-value">${data[i].firstname}</p>
+                                        <div class="col-1-of-3">
+                                            <span class="game-details game-details--icon">Directions</span>
+                                            <span class="game-details game-details--icon"><i class="fas fa-street-view fa-4x icon-back"></i></span>
                                         </div>
-                                        <a href="#" class="btn btn--white">Invite</a>
+                                        <div class="col-1-of-3">
+                                        <span class="game-details game-details--icon">Save</span>
+                                        <span class="game-details game-details--icon"><i class="far fa-bookmark fa-4x icon-back"></i></span>
+                                        </div>
+                                        <div class="col-1-of-3">
+                                        <span class="game-details game-details--icon">Join</span>
+                                        <span class="game-details game-details--icon"><i class="fas fa-user-plus fa-4x icon-back"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

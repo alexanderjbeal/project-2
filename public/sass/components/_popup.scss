@@ -30,7 +30,7 @@
         }
 
         &:hover {
-            color: $color-blue-dark;
+            color: $color-black;
         }
 
     }
@@ -46,6 +46,7 @@
         background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
         box-shadow: 0 2rem 4rem rgba($color-black, 1.0);
         border-radius: 3px;
+        text-align: center;
     }
 
 }

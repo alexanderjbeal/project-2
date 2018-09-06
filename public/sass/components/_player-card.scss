@@ -28,18 +28,18 @@
             transform: rotateY(180deg);
 
             &-1 {
-                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+                background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
             }
 
         }
     }
 
 
-    &:active &__side--front {
+    &:hover &__side--front {
         transform: rotateY(-180deg);
     }
 
-    &:active &__side--back {
+    &:hover &__side--back {
         transform: rotateY(0);
     }
 
@@ -47,11 +47,16 @@
     &__picture {
         background-size: cover;
         height: 38rem;
-        background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        background-position: center;
+        // background-blend-mode: screen;
+        // -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
+
+        @include respond(phone) {
+            background-position: top;
+        }
         
 
         &--1 {

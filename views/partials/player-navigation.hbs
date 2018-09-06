@@ -1,9 +1,95 @@
     <div class="page-navigation__menu">
+        {{#if isAuthenticated}}
         <ul>
             <li>
                 <span class="heading-page--main">Players.</span>
             </li>
-            <li>Games</li>
-            <li>Players</li>
+            <li><a href="/index" class="btn btn--gradient">Home</a></li>
+            <li><a href="/games" class="btn btn--gradient">Games</a></li>
         </ul>
+        {{/if}}
+
+        {{#unless isAuthenticated}}
+        <ul>
+            <li>
+                <span class="heading-page--main">Players.</span>
+            </li>
+            <li><a href="/index" class="btn btn--gradient">Home</a></li>
+            <li><a href="/games" class="btn btn--gradient">Games</a></li>
+            <li><a href="#popup" class="btn btn--gradient">Login</a></li>
+        </ul>
+        {{/unless}}
     </div>
+
+
+    <div class="popup" id="popup">
+          <div class="popup__content">
+            {{#if isAuthenticated}}
+            
+            {{/if}}
+
+            {{#unless isAuthenticated}}
+
+              <div class="row">
+                <div class="col-1-of-2">
+
+                    <span class="game-details game-details--location">Login</span>
+                    <form id="signin" class="form" name="signin" method="post" action="signin">
+                    
+                    <div class="form__group">
+                        <label for="email" class="form__label" >Email</label>
+                        <input type="email" class="form__input text" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="password" class="form__label">Password</label>
+                        <input type="password" class="form__input" id="password" name="password" required>
+                    </div>
+
+                    <input class="btn btn--form" type="submit" value="Login" />
+
+
+                    {{!-- <p class="paragraph">Not registed? <a href="/signup">Sign up</a></p> --}}
+
+                    </form>
+                </div>
+                <div class="col-1-of-2">
+
+                    <span class="game-details game-details--location">Register</span>
+
+                    <form id="signup" name="signup" method="post" action="/signup">
+
+              <div class="form__group">
+                <label for="email" class="form__label">Email</label>
+                <input class="form__input" name="email" type="email" required/>
+              </div>
+
+              <div class="form__group">
+                <label for="firstname" class="form__label">First name</label>
+                <input name="firstname" class="form__input" type="text" required />
+              </div>
+
+              <div class="form__group">
+                <label for="lastname" class="form__label">Last name</label>
+                <input name="lastname" class="form__input" type="text" required/>
+              </div>
+
+              <div class="form__group">
+                <label for="password" class="form__label">Password</label>
+                <input name="password" class="form__input" type="password" required/>
+              </div>
+              
+              <input class="btn btn--form" type="submit" value="Register" />
+
+            </form>
+
+                    
+                </div>
+            </div>
+            
+          
+            {{/unless}}
+
+            <a href="#section-players" class="popup__close">&times;</a>
+          </div>
+        </div>

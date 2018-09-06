@@ -66,8 +66,9 @@
         display: block !important;
         width: 80%;
         margin: 0 auto;
-        background-color: $color-white;
-        color: $color-blue;
+        background-color: $color-black;
+        color: $color-white;
+        font-weight: bold;
 
         &::after {
             background-color: $color-white;
@@ -87,10 +88,14 @@
     }
 
     &--gradient {
-        background-image: linear-gradient(to right, $color-blue-light, $color-primary);
+        background-color: transparent;
         color: white;
         // font-weight: 300;
         // letter-spacing: .5rem !important;
+
+        &:hover {
+            background-image: linear-gradient(to right, $color-blue-light, $color-primary);
+        }
 
         &::after {
             background-image: linear-gradient(to right, $color-blue-light, $color-primary);

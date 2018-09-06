@@ -28,7 +28,7 @@
             transform: rotateY(180deg);
 
             &-1 {
-                background-image: linear-gradient(to right bottom, $color-blue-light, $color-blue-dark);
+                background-image: linear-gradient(to right bottom, $color-blue-light, $color-primary);
             }
 
         }
@@ -115,7 +115,8 @@
         &--button-bottom {
             height: 5rem;
             width: 70%;
-            background-color: $color-blue;
+            // background-color: $color-blue;
+            background-image: linear-gradient(to right, $color-blue-light, $color-primary);
             position: absolute;
             bottom: 0;
             left: 0;

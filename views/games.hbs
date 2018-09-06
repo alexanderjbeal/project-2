@@ -3,13 +3,6 @@
     <section class="section-games" id="section-games">
 
       {{> game-navigation}}
-      
-      {{!-- <div class="u-center-text  u-margin-bottom-lg">
-        <h2>
-          <span class="heading-secondary">Games</span>
-        </h2>
-        <a href="#popup" class="btn btn--blue btn--animated">Create a game</a>
-      </div> --}}
         
         <div class="popup" id="popup">
           <div class="popup__content">
@@ -17,7 +10,7 @@
             <form class="add-game" action="api/games" method="POST">
 
             <div class="form__group">
-                <label for="date" class="form__label">Time</label>
+                <label for="date" class="form__label">Date</label>
                 <input type="date" class="form__input" id="date" name="date" placeholder="Date" required>
               </div>
 
@@ -41,8 +34,66 @@
             </form>
             {{/if}}
 
-            {{#unless isAuthenticated}} 
-              <span class="game-details--location">Only members can create games.</span>
+            {{#unless isAuthenticated}}
+
+              <div class="row">
+                <div class="col-1-of-2">
+
+                    <span class="game-details game-details--location">Login</span>
+                    <form id="signin" class="form" name="signin" method="post" action="signin">
+                    
+                    <div class="form__group">
+                        <label for="email" class="form__label" >Email</label>
+                        <input type="email" class="form__input text" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="password" class="form__label">Password</label>
+                        <input type="password" class="form__input" id="password" name="password" required>
+                    </div>
+
+                    <input class="btn btn--form" type="submit" value="Login" />
+
+
+                    {{!-- <p class="paragraph">Not registed? <a href="/signup">Sign up</a></p> --}}
+
+                    </form>
+                </div>
+                <div class="col-1-of-2">
+
+                    <span class="game-details game-details--location">Register</span>
+
+                    <form id="signup" name="signup" method="post" action="/signup">
+
+              <div class="form__group">
+                <label for="email" class="form__label">Email</label>
+                <input class="form__input" name="email" type="email" required/>
+              </div>
+
+              <div class="form__group">
+                <label for="firstname" class="form__label">First name</label>
+                <input name="firstname" class="form__input" type="text" required />
+              </div>
+
+              <div class="form__group">
+                <label for="lastname" class="form__label">Last name</label>
+                <input name="lastname" class="form__input" type="text" required/>
+              </div>
+
+              <div class="form__group">
+                <label for="password" class="form__label">Password</label>
+                <input name="password" class="form__input" type="password" required/>
+              </div>
+              
+              <input class="btn btn--form" type="submit" value="Register" />
+
+            </form>
+
+                    
+                </div>
+            </div>
+            
+          
             {{/unless}}
 
             <a href="#section-games" class="popup__close">&times;</a>
