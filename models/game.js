@@ -10,11 +10,18 @@ module.exports = (sequelize, Sequelize) => {
       },
       location: {
           type: Sequelize.TEXT,
-          notEmpty: true
+          notEmpty: true,
+          validate: {
+            len: [1, 15]
+        }
       },
       max_players: {
         type: Sequelize.INTEGER,
-        notEmpty: true
+        notEmpty: true,
+        validate: {
+          min: { args: 6, msg: "Pick between 6-10" },
+          max: { args: 10, msg: "Pick between 6-10" },
+        }
       }
       // full_game: {
       //     type: Sequelize.BOOLEAN,

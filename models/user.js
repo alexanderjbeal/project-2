@@ -4,12 +4,18 @@ module.exports = (sequelize, Sequelize) => {
  
         firstname: {
             type: Sequelize.STRING,
-            notEmpty: true
+            notEmpty: true,
+            validate: {
+                len: [1, 12]
+            }
         },
  
         lastname: {
             type: Sequelize.STRING,
-            notEmpty: true
+            notEmpty: true,
+            validate: {
+                len: [1, 15]
+            }
         },
  
         username: {
